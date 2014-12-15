@@ -1,0 +1,22 @@
+extends ../../layout
+
+block content
+	.row
+		a.btn.btn-primary(href="/admin/courses/form") add course
+	.row
+		.table-responsive
+			table.table.table-hover.table-condensed
+				caption #{title}
+				thead
+					tr
+						th 名称
+						th 操作
+				tbody
+					each course in courses
+						tr(class="course-id-#{course._id}")
+							td #{course.name}
+							td
+								a.btn.btn-success(href="/admin/course/edit/#{course._id}") 编辑
+								button.btn.btn-danger.course-del(type="button" data-id="#{course._id}") 删除
+			include pager.jade
+	script(src="/javascripts/admin.js")

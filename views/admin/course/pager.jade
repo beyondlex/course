@@ -1,0 +1,29 @@
+#pager
+	if page.count>1
+		ul.pagination
+			if page.number
+				li
+					a(href="/admin/courses/#{page.number}")&laquo;
+			else
+				li
+					a(href="#")&laquo;
+			- var n = 0;
+			while n < page.count
+
+				if n == page.number
+					- var active = 'active';
+				else
+					- var active = '';
+
+				li(class="#{active}")
+					a(href="/admin/courses/#{n+1}")= n+1
+
+				- n++;
+			if page.number<page.count-1
+				li
+					a(href="/admin/courses/#{page.number+2}")&raquo;
+			else
+				li
+					a(href="#")&raquo;
+				
+

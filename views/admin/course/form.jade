@@ -1,0 +1,9 @@
+extends ../../layout
+
+block content
+	.row
+		form(role="form" method="post")
+			.form-group
+				label(for="name") 名称
+				input.form-control(name="course[name]" type="text" placeholder="请输入名称")
+			button.btn.btn-primary(type="submit") 提交
