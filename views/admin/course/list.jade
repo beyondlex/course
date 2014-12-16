@@ -18,5 +18,20 @@ block content
 							td
 								a.btn.btn-success(href="/admin/course/edit/#{course._id}") 编辑
 								button.btn.btn-danger.course-del(type="button" data-id="#{course._id}") 删除
-			include pager.jade
+			
+			div#pager
+
+	script(type="text/javascript").
+		$(function() {
+			var options = {
+				currentPage: "#{page.number + 1}",
+				totalPages: "#{page.count}",
+				numberOfPages: 5,
+				pageUrl: function(type, page, current) {
+					return '/admin/courses/'+page;
+				}
+			}
+			$('#pager').bootstrapPaginator(options);
+		});
 	script(src="/javascripts/admin.js")
+	script(src="/components/bootstrap-paginator/src/bootstrap-paginator.js")
