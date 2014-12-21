@@ -3,7 +3,7 @@ var Course = require('../../lib/course');
 
 
 exports.list = function(req, res, next) {
-
+	console.log('oh ss');
 	var page = req.page;
 	console.log(page);
 	Course

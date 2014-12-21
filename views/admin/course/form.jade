@@ -6,4 +6,24 @@ block content
 			.form-group
 				label(for="name") 名称
 				input.form-control(name="course[name]" type="text" placeholder="请输入名称")
+				input#fileupload(type="file" name="files[]" data-url="" multiple="multiple")
 			button.btn.btn-primary(type="submit") 提交
+
+	//- link(rel="stylesheet" link="/components/jquery-file-upload/css/jquery.fileupload.css")
+	script(src="/components/jquery-file-upload/js/vendor/jquery.ui.widget.js")
+	script(src="/components/jquery-file-upload/js/jquery.iframe-transport.js")
+	script(src="/components/jquery-file-upload/js/jquery.fileupload.js")
+
+	script.
+		$(function(){
+			$('#fileupload').fileupload({
+				dataType: 'json',
+				done: function(e, data) {
+					console.log(e);
+					console.log(data);
+				},	
+			})	
+		})
+
+
+		

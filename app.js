@@ -5,6 +5,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+var upload = require('jquery-file-upload-middleware');
+
 var page = require('./lib/middleware/page');
 var Course = require('./lib/course');
 
@@ -44,7 +46,8 @@ app.get('/admin/course/edit/:id', courses.edit);
 app.post('/admin/course/edit/:id', courses.update);
 app.delete('/admin/course/:id', courses.del);
 
-
+//fileupload
+var dirs = require('./config').directors;
 
 
 
